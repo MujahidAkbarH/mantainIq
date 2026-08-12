@@ -6,6 +6,9 @@ web_modules/
 # Next.js build outputs
 .next/
 out/
+dist/
+build/
+
 
 # Environment variables & secrets
 .env
