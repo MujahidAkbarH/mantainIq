@@ -8,7 +8,8 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: process.env.NEXT_PUBLIC_BACKEND_URL ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/:path*` : 'http://localhost:5000/api/:path*',
+        // Hardcoded directly to your live backend to bypass Vercel cache bugs
+        destination: 'https://mantainq-backend-oyuft9dj0-mujahid-s-projects-340b72d2.vercel.app/api/:path*',
       },
     ];
   },
