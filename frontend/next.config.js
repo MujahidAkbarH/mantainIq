@@ -8,8 +8,8 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        // Hardcoded directly to your live backend to bypass Vercel cache bugs
-        destination: 'https://mantainq-backend-oyuft9dj0-mujahid-s-projects-340b72d2.vercel.app/api/:path*',
+        // Points directly to your clean live production backend
+        destination: 'https://mantainq-backend.vercel.app/api/:path*',
       },
     ];
   },
