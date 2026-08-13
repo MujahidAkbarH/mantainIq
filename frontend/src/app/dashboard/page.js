@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
 import {
   Shield, User, Wrench, Package, CheckCircle2, Clock,
-  AlertTriangle, ArrowRight, Filter, RefreshCw, UserPlus, Check, MapPin
+  AlertTriangle, ArrowRight, Filter, RefreshCw, UserPlus, Check, MapPin, Search
 } from 'lucide-react';
 
 import Link from 'next/link';
