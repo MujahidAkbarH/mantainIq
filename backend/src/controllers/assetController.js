@@ -6,7 +6,20 @@ const HistoryLog = require('../models/HistoryLog');
 
 // Helper to generate dynamic QR code Data URL
 const generateAssetQR = async (uniqueCode) => {
-  const clientBase = process.env.CLIENT_URL || 'http://localhost:3000';
+  let clientBase = process.env.CLIENT_URL || 'https://mantain-iq.vercel.app';
+  
+  // Ensure that we do not use localhost or 127.0.0.1 in the generated QR code URL, falling back to production URL
+  if (clientBase.includes('localhost') || clientBase.includes('127.0.0.1')) {
+    clientBase = 'https://mantain-iq.vercel.app';
+  }
+
+  // Force secure https:// protocol
+  if (clientBase.startsWith('http://')) {
+    clientBase = clientBase.replace('http://', 'https://');
+  } else if (!clientBase.startsWith('https://')) {
+    clientBase = `https://${clientBase}`;
+  }
+
   const publicUrl = `${clientBase}/p/${uniqueCode}`;
   
   // Encode ONLY the safe public URL inside the QR code

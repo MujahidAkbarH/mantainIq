@@ -46,7 +46,8 @@ export default function PublicAssetViewPage() {
   const fetchPublicAsset = async () => {
     if (!rawCode) return;
     try {
-      const res = await fetch(`/api/public/assets/${rawCode}`);
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || '';
+      const res = await fetch(`${apiBase}/api/public/assets/${rawCode}`);
       const data = await res.json();
       if (res.ok && data.success && data.asset) {
         setAsset(data.asset);
@@ -80,7 +81,8 @@ export default function PublicAssetViewPage() {
     setError('');
 
     try {
-      const res = await fetch('/api/public/ai-triage', {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || '';
+      const res = await fetch(`${apiBase}/api/public/ai-triage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -144,7 +146,8 @@ export default function PublicAssetViewPage() {
     setError('');
 
     try {
-      const res = await fetch('/api/public/issues', {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || '';
+      const res = await fetch(`${apiBase}/api/public/issues`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
