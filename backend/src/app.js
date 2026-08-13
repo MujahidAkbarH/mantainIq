@@ -2,11 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 const healthRoutes = require('./routes/health');
 const authRoutes = require('./routes/authRoutes');
 const assetRoutes = require('./routes/assetRoutes');
 const publicRoutes = require('./routes/publicRoutes');
 const issueRoutes = require('./routes/issueRoutes');
+
+// Establish database connection on startup (especially for serverless/Vercel environments)
+if (mongoose.connection.readyState === 0) {
+  connectDB();
+}
 
 
 const app = express();
