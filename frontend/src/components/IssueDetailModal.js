@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   X, Wrench, Calendar, MapPin, User, AlertCircle, CheckCircle2,
-  DollarSign, Upload, Sparkles, Info, AlertTriangle, Play, Check
+  DollarSign, Upload, Sparkles, Info, AlertTriangle, Play, Check, Clock
 } from 'lucide-react';
 
 export default function IssueDetailModal({ issue, token, onClose, onRefresh }) {
